@@ -39,7 +39,7 @@ public class App {
 
     public App () {
         try {
-            // L'url d'accès            ici juste en dessous faut mettre un .db, je n'en ai pas trouvé
+            // L'url d'accès ici juste en dessous faut mettre un .db, je n'en ai pas trouvé
             String url = "jdbc:sqlite:./demo.db";
             // Créer une bd ou l'ouvrir si existante
             connexion = DriverManager.getConnection(url);
