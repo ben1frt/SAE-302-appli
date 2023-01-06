@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
-public class SAE302_main {
+public class SAE302 {
 
     private Connection connexion;
 
@@ -26,13 +26,13 @@ public class SAE302_main {
         fos.close();
     }
 
-    public SAE302_main () {
+    public SAE302 (String nom) {
         try {
             // L'url d'accès
-            String url = "jdbc:sqlite:./ecowattest.db";
+            String url = "jdbc:sqlite:./"+nom;
             // Créer une bd ou l'ouvrir si existante
             connexion = DriverManager.getConnection(url);
-            System.out.println("Connexion à SQLite établie.");    
+            System.out.println("Connexion à "+nom+" établie.");    
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -61,12 +61,49 @@ public class SAE302_main {
         }
     }
 
+    public void insertIntoDb (String nom, int an) {
+        String sql;
+
+
+        sql= "insert into Infos ('nom', 'annee') Values (?, ?);";
+        try (
+        PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+            pstmt.setString(1, nom);
+            pstmt.setInt(2, an);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void initDb () {
+        Statement s;
+        String sql;
+        
+        try {
+            s= connexion.createStatement();
+            sql= "CREATE TABLE IF NOT EXISTS signals ( " + 
+                "GenerationFichier DATE," +
+                "jour DATE, " +
+                "dvalue INTEGER, " +
+                "message VARCHAR( 150 ), " +
+                "annee INTEGER);";
+            s.execute(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+
     //main
     public static void main(String[] args) throws Exception {
         //télécharger le fichier .db
-        downloadFile("http://isis.unice.fr/~mgautero/ext/sae302/bd/ecowatt.db", "ecowattest.db");
+        downloadFile("http://isis.unice.fr/~mgautero/ext/sae302/bd/ecowatt.db", "internet.db");
         //afficher le contenu de la bd
-        SAE302_main app = new SAE302_main();
+        SAE302 internet = new SAE302("internet.db");
+        SAE302 local = new SAE302("local.db")
+        local.initDb
         app.searchIntoDb();
 
     }
