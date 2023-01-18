@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class LegendEcoApp extends AppCompatActivity {
+public class EcoGestes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_legend_eco_app);
+        setContentView(R.layout.activity_eco_gestes);
     }
 }
