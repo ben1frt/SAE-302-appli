@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainLayout"
+    android:background="@drawable/gradient_list"
+    tools:context=".MainActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#3A4450"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BarMenu"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+
+    <Button
+        android:id="@+id/ReturnButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#00000000"
+        android:drawableTint="#00000000"
+        android:foregroundTint="#00000000"
+        android:text=""
+        android:textAllCaps="false"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/LogoEcoApp"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_eco" />
+
+    <FrameLayout
+        android:id="@+id/FrameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/box_day"
+        android:padding="10dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/Day1"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:text="15/01"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:id="@+id/Scroll1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="70dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Day1Hour0"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="00h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/Day1Alert0"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="-40sp"
+                    android:layout_marginTop="25dp"
+                    app:srcCompat="@android:drawable/radiobutton_off_background"
+                    app:tint="#689F38" />
+
+                <TextView
+                    android:id="@+id/Day1Hour1"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="01h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/Day1Alert1"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="-40sp"
+                    android:layout_marginTop="25dp"
+                    app:srcCompat="@android:drawable/radiobutton_off_background"
+                    app:tint="#F57C00" />
+
+                <TextView
+                    android:id="@+id/Day1Hour2"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="02h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/Day1Alert2"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="-40sp"
+                    android:layout_marginTop="25dp"
+                    app:srcCompat="@android:drawable/radiobutton_off_background"
+                    app:tint="#D32F2F" />
+
+                <TextView
+                    android:id="@+id/Day1Hour3"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="03h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour4"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="04h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour5"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="05h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour6"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="06h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour7"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="07h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour8"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="08h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour9"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="09h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour10"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="10h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour11"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="11h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour12"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="12h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour13"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="13h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour14"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="14h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour15"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="15h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour16"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="16h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour17"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="17h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour18"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="18h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour19"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="19h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour20"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="20h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour21"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="21h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour22"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="22h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day1Hour23"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="23h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/FrameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/box_day"
+        android:padding="10dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FrameLayout1">
+
+        <TextView
+            android:id="@+id/Day2"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:text="16/01"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:id="@+id/Scroll2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="70dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Day2Hour0"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="00h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour1"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="01h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour2"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="02h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour3"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="03h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour4"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="04h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour5"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="05h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour6"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="06h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour7"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="07h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour8"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="08h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour9"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="09h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour10"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="10h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour11"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="11h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour12"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="12h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour13"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="13h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour14"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="14h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour15"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="15h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour16"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="16h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour17"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="17h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour18"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="18h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour19"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="19h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour20"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="20h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour21"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="21h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour22"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="22h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day2Hour23"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="23h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/FrameLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/box_day"
+        android:padding="10dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FrameLayout2">
+
+        <TextView
+            android:id="@+id/Day3"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:text="17/01"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:id="@+id/Scroll3"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="70dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Day3Hour0"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="00h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour1"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="01h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour2"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="02h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour3"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="03h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour4"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="04h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour5"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="05h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour6"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="06h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour7"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="07h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour8"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="08h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour9"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="09h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour10"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="10h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour11"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="11h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour12"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="12h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour13"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="13h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour14"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="14h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour15"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="15h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour16"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="16h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour17"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="17h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour18"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="18h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour19"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="19h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour20"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="20h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour21"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="21h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour22"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="22h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day3Hour23"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="23h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/FrameLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/box_day"
+        android:padding="10dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FrameLayout3">
+
+        <TextView
+            android:id="@+id/Day4"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:text="18/01"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:id="@+id/Scroll4"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="70dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Day4Hour0"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="00h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour1"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="01h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour2"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="02h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour3"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="03h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour4"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="04h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour5"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="05h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour6"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="06h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour7"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="07h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour8"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="08h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour9"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="09h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour10"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="10h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour11"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="11h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour12"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="12h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour13"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="13h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour14"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="14h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour15"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="15h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour16"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="16h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour17"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="17h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour18"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="18h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour19"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="19h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour20"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="20h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour21"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="21h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour22"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="22h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Day4Hour23"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="23h"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/FrameLayout5"
+        android:layout_width="320dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:elevation="10dp"
+        android:background="@drawable/box_day"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FrameLayout4">
+
+        <ImageView
+            android:id="@+id/AlertGreen"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@android:drawable/radiobutton_off_background"
+            app:tint="#689F38" />
+
+        <TextView
+            android:id="@+id/AlertGreenText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="12.5dp"
+            android:text="Aucun risques"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:autoSizeTextType="uniform"/>
+
+        <ImageView
+            android:id="@+id/AlertOrange"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="55dp"
+            app:srcCompat="@android:drawable/radiobutton_off_background"
+            app:tint="#F57C00" />
+
+        <TextView
+            android:id="@+id/AlertOrangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="52.5dp"
+            android:text="Le système électrique est sollicité.\nLes éco-gestes sont les bienvenus."
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:autoSizeTextType="uniform"/>
+
+        <ImageView
+            android:id="@+id/AlertRed"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="110dp"
+            app:srcCompat="@android:drawable/radiobutton_off_background"
+            app:tint="#D32F2F" />
+
+        <TextView
+            android:id="@+id/AlertRedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:text="Le système électrique est très sollicité.\nPanne du réseaux électrique inévitables\nSi nous ne prenons pas de mesures éco."
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:autoSizeTextType="uniform"/>
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/EcoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="160dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="Suivre les Eco-Gestes"
+        android:background="@drawable/bouton_eco"
+        android:onClick="DisplayEcoGestes"
+        app:layout_constraintTop_toBottomOf="@+id/FrameLayout5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
