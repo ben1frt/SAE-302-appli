@@ -1,7 +1,8 @@
-date,sighted,loc
-2020-01-01,12,Boise
-2020-06-01,78,Boise
-2020-01-01,54,Seattle
-2020-06-01,112,Seattle
-2020-01-01,9,Detroit
-2020-06-01,135,Detroit
+#constant measurement,example
+#constant tag,source,csv
+#datatype long,dateTime:RFC3339
+count,time
+1,2020-01-01T00:00:00Z
+4,2020-01-02T00:00:00Z
+9,2020-01-03T00:00:00Z
+18,2020-01-04T00:00:00Z
