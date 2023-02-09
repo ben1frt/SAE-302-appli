@@ -1,3 +1,5 @@
+#dateTime:RFC3339,double,double
+date,heure,value
 2023-01-25T00:00:00Z,00,1
 2023-01-25T00:00:00Z,01,1
 2023-01-25T00:00:00Z,02,1
