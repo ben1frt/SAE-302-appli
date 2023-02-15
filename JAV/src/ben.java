@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
+import org.json.simple.JSONObject;
 
 public class ben {
 
@@ -78,6 +80,8 @@ public class ben {
         // pour le traitement des données
         List<String> jourList = new ArrayList<String>();
         List<String> valueList = new ArrayList<String>();
+        //création
+        Map ht = new Hashtable();
 
         // REQUETE SQL
         sql = "select * from Infos where id= (select max(id) from Infos)";
@@ -111,8 +115,8 @@ public class ben {
                     }
                 }
             }
-            System.out.println(jourList);
-            System.out.println(valueList);
+            //System.out.println(jourList);
+            //System.out.println(valueList);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -152,16 +156,18 @@ public class ben {
             e.printStackTrace();
         }
     }
-
-
-    //main
-    public static void main(String[] args) throws Exception {
-        //télécharger le fichier .db
-        downloadFile("http://isis.unice.fr/~mgautero/ext/sae302/bd/ecowatt.db", "internet.db");
-        //afficher le contenu de la bd
-        ben internet = new ben("internet.db");
-        //SAE302 local = new SAE302("local.db")
-        internet.searchIntoDb();
-
-    }
 }
+
+
+ 
+ //ajouter les clés-valeurs
+ //ht.put(1, "java");
+ 
+ //for (Map.Entry entry : ht.entrySet())
+ //{
+ //int clé = entry.getKey();
+ //String valeur = entry.getValue();
+ //System.out.println(clé + "-" + valeur);
+
+
+ //JSONObject obj = new JSONObject(data);
