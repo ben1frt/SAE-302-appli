@@ -13,7 +13,7 @@ import java.util.Dictionary;
 import java.util.List;
 import java.util.ArrayList;
 
-public class SAE302 {
+public class _Aurelien {
 
     private Connection connexion;
 
@@ -30,7 +30,7 @@ public class SAE302 {
         fos.close();
     }
 
-    public SAE302 (String nom) {
+    public _Aurelien (String nom) {
         try {
             // L'url d'accès
             String url = "jdbc:sqlite:./"+nom;
@@ -157,7 +157,7 @@ public class SAE302 {
         //télécharger le fichier .db
         downloadFile("http://isis.unice.fr/~mgautero/ext/sae302/bd/ecowatt.db", "internet.db");
         //afficher le contenu de la bd
-        SAE302 internet = new SAE302("internet.db");
+        _Aurelien internet = new _Aurelien("internet.db");
         //SAE302 local = new SAE302("local.db")
         internet.searchIntoDb();
 

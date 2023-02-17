@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.ArrayList;
 import org.json.simple.JSONObject;
 
-public class ben {
+public class _benjamin {
 
     private Connection connexion;
 
@@ -32,7 +32,7 @@ public class ben {
         fos.close();
     }
 
-    public ben (String nom) {
+    public _benjamin (String nom) {
         try {
             // L'url d'accès
             String url = "jdbc:sqlite:./"+nom;
