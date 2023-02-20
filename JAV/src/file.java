@@ -5,8 +5,10 @@ import java.nio.channels.ReadableByteChannel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.json.JSONObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
+
 
 // classe premettant de définir un fichier en le téléchargant depuis une url
 // et en le stockant dans un fichier .db
@@ -19,8 +21,9 @@ public class file {
         return connexion;
     }
 
-    // télécharger un fichier .db depuis une url
-    private void downloadFile(String url, String fileName) {
+    // téléchargement d'un fichier depuis une url et stocker dans un fichier .db
+
+    public file (String url, String fileName) {
         try {
             // L'url d'accès
             URL website = new URL(url);
@@ -34,70 +37,47 @@ public class file {
         }
     }
 
-    // constructeur de la classe file
-    public file (String url, String fileName) {
-        try {
-            // télécharger le fichier depuis l'url
-            downloadFile(url, fileName);
-            System.out.println("Connexion à "+fileName+" établie.");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
+    // requete permettant de récupérer les données d'un fichier .db en chaines de caractères
 
-    // connexion à la base de données
-    public void connect (String nom) {
+    public String getValues (String nom) {
+        String values = "";
         try {
-            // L'url d'accès
+            // L'url d'accès connexion
             String url = "jdbc:sqlite:./"+nom;
             // Créer une bd ou l'ouvrir si existante
             connexion = DriverManager.getConnection(url);
             System.out.println("Connexion à "+nom+" établie.");    
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    // récupérer les informations du fichier .db créé avec une requete SQL
-    public void getInformations (String nom) {
-        String sql;
-        // REQUETE SQL
-        sql = "select * from Infos where id= (select max(id) from Infos)";
-        // vérifie si la requete est fonctionnelle avant de l'exécuter
-        try (PreparedStatement pstmt  = connexion.prepareStatement(sql)){
-            // récupère les résultats de la requete
-            ResultSet rs  = pstmt.getResultSet();
-            // récupère les données de la requete
-            while (rs.next()) {
-                // récupère les données de la requete
-                System.out.println(rs.getString("GenerationFichier"));
-                System.out.println(rs.getString("jour"));
-                System.out.println(rs.getString("dvalue"));
-                System.out.println(rs.getString("message"));
-                System.out.println(rs.getString("pas"));
-                System.out.println(rs.getString("hvalue"));
+            // Créer une requête
+            String sql = "select * from Infos where id= (select max(id) from Infos)";
+            PreparedStatement statement = connexion.prepareStatement(sql);
+            // Exécuter la requête
+            ResultSet result = statement.executeQuery();
+            // Récupérer les données
+            while (result.next()) {
+                values += result.getString("data");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return values;
     }
-    
-    // afficher les informations du fichier .db créé avec une requete SQL
-    public void showInformations (String nom) {
-        String sql;
-        // REQUETE SQL
-        sql = "select * from Infos where id= (select max(id) from Infos)";
-        // vérifie si la requete est fonctionnelle avant de l'exécuter
-        try (PreparedStatement pstmt  = connexion.prepareStatement(sql)){
-            // récupère les résultats de la requete
-            ResultSet rs = pstmt.executeQuery();
-            String data = rs.getString("data");
-            // création d'un objet JSON à partir d'une chaîne de caractères
-            JSONObject obj = new JSONObject(data);
-            // récupère les données de la requete
-            obj.showData(data);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+
+    // Création d'un objet JSON à partir d'une chaine de caractères
+
+    public JSONObject createJSON (String values) {
+        JSONObject obj = new JSONObject(values);
+        return obj;
     }
+
+    // Afficher les données d'un objet JSON
+
+    public void showJSON (JSONObject obj) {
+        System.out.println(obj);
+    }
+
+    // Récupérer les données utiles d'un objet JSON : "jour", "hvalue"
+
+
+    // Transformer les données utiles d'un objet JSON dans un fichier csv avec le séparateur ","
+
 }
