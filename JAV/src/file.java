@@ -5,6 +5,7 @@ import java.nio.channels.ReadableByteChannel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import org.json.JSONObject;
@@ -75,17 +76,33 @@ public class file {
         System.out.println(obj);
     }
 
-    // Récupérer les données utiles d'un objet JSON en parsant : "jour", "hvalue"
+    // Récupérer les données utiles d'un objet JSON dans un HashMap
 
-    public void getUsefulData (JSONObject obj) {
-        JSONArray arr = obj.getJSONArray("signals");
-        System.out.println("xxxxxxxxxx" + arr);
-        for (int i = 0; i < arr.length(); i++) {
-            JSONObject obj2 = arr.getJSONObject(i);
-            
-            System.out.println(obj2.get("jour"));
+    public HashMap<String, String> getUsefulData (JSONObject obj) {
+        JSONArray données = obj.getJSONArray("signals");
+        HashMap<String, String> mapJour = new HashMap<String, String>();
+        for (int i = 0; i < données.length(); i++) {
+            JSONObject donnée = données.getJSONObject(i);
+            String jour = donnée.getString("jour");
+            mapJour.put("jour"+(i+1), jour);
         }
+        // afficher je jour 4
+        //System.out.println(mapJour.get("jour4"));
+        return mapJour;
     }
+
+
+
+
+    
+    /*public void getUsefulData (JSONObject obj) {
+        JSONArray données = obj.getJSONArray("signals");
+        for (int i = 0; i < données.length(); i++) {
+            JSONObject donnée = données.getJSONObject(i);
+            String jour = donnée.getString("jour");
+        }
+    }*/
+
     // Transformer les données utiles d'un objet JSON dans un fichier csv avec le séparateur ","
 
 }
