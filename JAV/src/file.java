@@ -5,9 +5,10 @@ import java.nio.channels.ReadableByteChannel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import org.json.JSONObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import org.json.JSONObject;
+import org.json.*;
 
 
 
@@ -74,17 +75,15 @@ public class file {
         System.out.println(obj);
     }
 
-    // Récupérer les données utiles d'un objet JSON : "jour", "hvalue"
+    // Récupérer les données utiles d'un objet JSON en parsant : "jour", "hvalue"
 
     public void getUsefulData (JSONObject obj) {
-        String[] data = obj.toString().split(",");
-        for (int i = 0; i < data.length; i++) {
-            if (data[i].contains("jour")) {
-                System.out.println(data[i]);
-            }
-            if (data[i].contains("hvalue")) {
-                System.out.println(data[i]);
-            }
+        JSONArray arr = obj.getJSONArray("signals");
+        System.out.println("xxxxxxxxxx" + arr);
+        for (int i = 0; i < arr.length(); i++) {
+            JSONObject obj2 = arr.getJSONObject(i);
+            
+            System.out.println(obj2.get("jour"));
         }
     }
     // Transformer les données utiles d'un objet JSON dans un fichier csv avec le séparateur ","
