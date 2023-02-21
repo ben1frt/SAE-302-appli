@@ -11,5 +11,7 @@ public class Principal {
         JSONObject obj = f.createJSON(values);
         // affichage des données de l'objet JSON
         f.showJSON(obj);
+        // getUsefulData permet de récupérer les données utiles de l'objet JSON
+        f.getUsefulData(obj);
     }
 }

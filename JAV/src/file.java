@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 
+
 // classe premettant de définir un fichier en le téléchargant depuis une url
 // et en le stockant dans un fichier .db
 
@@ -53,9 +54,7 @@ public class file {
             // Exécuter la requête
             ResultSet result = statement.executeQuery();
             // Récupérer les données
-            while (result.next()) {
-                values += result.getString("data");
-            }
+            values = result.getString("data");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -77,7 +76,17 @@ public class file {
 
     // Récupérer les données utiles d'un objet JSON : "jour", "hvalue"
 
-
+    public void getUsefulData (JSONObject obj) {
+        String[] data = obj.toString().split(",");
+        for (int i = 0; i < data.length; i++) {
+            if (data[i].contains("jour")) {
+                System.out.println(data[i]);
+            }
+            if (data[i].contains("hvalue")) {
+                System.out.println(data[i]);
+            }
+        }
+    }
     // Transformer les données utiles d'un objet JSON dans un fichier csv avec le séparateur ","
 
 }

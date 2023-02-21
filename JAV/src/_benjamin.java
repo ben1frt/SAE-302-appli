@@ -156,7 +156,16 @@ public class _benjamin {
             e.printStackTrace();
         }
     }
+    // main 
+    public static void main(String[] args) {
+        _benjamin b = new _benjamin("test.db");
+        b.initDb();
+        b.insertIntoDb("test", 2020);
+        b.searchIntoDb();
+    }
 }
+
+
 
 
  
