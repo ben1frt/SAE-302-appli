@@ -10,8 +10,10 @@ public class Principal {
         // création d'un objet JSON à partir des données récupérées
         JSONObject obj = f.createJSON(values);
         // affichage des données de l'objet JSON
-        f.showJSON(obj);
+        ////f.showJSON(obj);
         // getUsefulData permet de récupérer les données utiles de l'objet JSON
         f.getUsefulData(obj);
+        // création d'un fichier .csv à partir des données utiles
+        f.createCSV(f.getUsefulData(obj));
     }
 }
