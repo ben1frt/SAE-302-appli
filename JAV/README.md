@@ -16,3 +16,14 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 ## Dependency Management
 
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+
+SCRIPT POUR IMPORTER UN CSV SUR INFLUXDB
+
+import "csv"
+import "experimental/http"
+
+url = "https://raw.githubusercontent.com/ben1frt/SAE-302-appli/main/JAV/data.csv"
+csvData = string(v: http.get(url: url).body)
+
+csv.from(csv: csvData, mode: "raw")
