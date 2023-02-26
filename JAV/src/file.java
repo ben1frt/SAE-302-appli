@@ -118,11 +118,11 @@ public class file {
 
     // Création d'un fichier .csv à partir d'un HashMap avec les données utiles avec le séparateur ";"
     
-    public void createCSV (HashMap<String, String[]> usefulData) {
+    public void createCSV (HashMap<String, String[]> usefulData, String name) {
         // création d'un fichier .csv
         try {
             // création d'un fichier .csv
-            File file = new File("data.csv");
+            File file = new File(name + ".csv");
             // création d'un objet FileWriter
             FileWriter fw = new FileWriter(file);
             // création d'un objet BufferedWriter

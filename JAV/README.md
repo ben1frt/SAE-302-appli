@@ -27,3 +27,11 @@ url = "https://raw.githubusercontent.com/ben1frt/SAE-302-appli/main/JAV/data.csv
 csvData = string(v: http.get(url: url).body)
 
 csv.from(csv: csvData, mode: "raw")
+
+LE FICHIER CSV DOIT RESSEMBLER A CELA 
+
+days,pas1,pas2,pas3,pas4,pas5,pas6,pas7,pas8,pas9,pas10,pas11,pas12,pas13,pas14,pas15,pas16,pas17,pas18,pas19,pas20,pas21,pas22,pas23,pas24
+2023-02-25T00:00:00+01:00,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+2023-02-24T00:00:00+01:00,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+2023-02-22T00:00:00+01:00,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+2023-02-23T00:00:00+01:00,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
