@@ -23,7 +23,7 @@ SCRIPT POUR IMPORTER UN CSV SUR INFLUXDB
 import "csv"
 import "experimental/http"
 
-url = "https://raw.githubusercontent.com/ben1frt/SAE-302-appli/main/JAV/data.csv"
+url = "https://raw.githubusercontent.com/ben1frt/SAE-302-appli/main/Java%20RecoveryData/usefulData.csv"
 csvData = string(v: http.get(url: url).body)
 
 csv.from(csv: csvData, mode: "raw")
