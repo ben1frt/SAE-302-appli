@@ -54,7 +54,7 @@ pour créer un hôte, on utilise la commande
 pivpn -a 
 ```
 
-On suit la procédure et notre profil est prêt a être exporter
+On suit la procédure et notre profil est prêt à être exporter
 
 ## Récupérer le profil
 
@@ -86,3 +86,13 @@ Cette commande nous est utile pour vérifier le bon fonctionnement de la connexi
 Afin de pouvoir nous connecter au VPN, nous avons besoin d’ouvrir un port sur la Box Internet 
 
 Cela dépend du fournisseurs, il faudra ce référer a leur doc pour associer un port de celle-ci a notre serveur nouvellement configurés.
+
+# Utilisation du client
+
+Nous avons besoin d’installer l’application Wireguard sur notre machine cliente afin de monter le tunnel 
+
+on doit donc après l’avoir installé 
+
+1. Créer un tunnel vide
+2. Copier-coller le contenu du fichier dans le tunnel ou suivre le QR code
+3. On clique sur activer et on espère
