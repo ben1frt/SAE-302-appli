@@ -12,7 +12,7 @@ implementation 'org.influxdb:influxdb-java:2.23'
 }
 ```
 
-Utilisez la bibliothèque `influxdb-java` pour interroger la base de données et récupérer les données souhaitées. Voici un exemple de code pour récupérer toutes les données de la mesure "Ecowatt" :
+Utilisez la bibliothèque `influxdb-java` pour interroger la base de données et récupérer les données souhaitées. Voici le code pour récupérer toutes les données de la mesure "Ecowatt" :
 
 ```java
 
@@ -45,5 +45,3 @@ public List<QueryResult.Result> getAllEcowattData() {
 ```
 
 Il faut utiliser la méthode `getAllEcowattData()` pour récupérer les données de la mesure "Ecowatt" depuis l’application Android. On peut par exemple les afficher dans une vue de liste , en utilisant un adaptateur personnalisé pour les afficher correctement.
-
-Notez que pour accéder à la base de données InfluxDB depuis votre application Android, vous devez vous assurer que votre appareil Android est sur le même réseau que le serveur InfluxDB et qu'il peut y accéder. Si votre serveur InfluxDB est hébergé sur un serveur distant, vous devrez également vous assurer que votre serveur dispose d'une adresse IP publique accessible depuis Internet.
