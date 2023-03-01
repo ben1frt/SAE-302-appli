@@ -128,7 +128,7 @@ public class file {
             // création d'un objet BufferedWriter
             BufferedWriter bw = new BufferedWriter(fw);
             // nom des colonnes du fichier .csv
-            bw.write("days,pas0,pas1,pas2,pas3,pas4,pas5,pas6,pas7,pas8,pas9,pas10,pas11,pas12,pas13,pas14,pas15,pas16,pas17,pas18,pas19,pas20,pas21,pas22,pas23");
+            bw.write("days,pas1,pas2,pas3,pas4,pas5,pas6,pas7,pas8,pas9,pas10,pas11,pas12,pas13,pas14,pas15,pas16,pas17,pas18,pas19,pas20,pas21,pas22,pas23,pas24");
             // saut de ligne
             bw.newLine();
             // récupération des données utiles
