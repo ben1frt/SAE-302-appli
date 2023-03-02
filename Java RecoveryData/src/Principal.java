@@ -5,7 +5,7 @@ public class Principal {
     public static void main(String[] args) {
 
         // création d'une variable de pour le nom du fichier .db et csv
-        String nameBdd = "recoveryEcowatt";
+        String nameBdd = "eco";
         String nameCsv = "data";
         // création d'un objet de type file
         file f = new file("http://isis.unice.fr/~mgautero/ext/sae302/bd/ecowatt.db", nameBdd+".db");
