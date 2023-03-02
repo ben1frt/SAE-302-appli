@@ -16,9 +16,9 @@ apt update && apt install -y influxdb influxdb-client pip default-jdk cron
 ensuite on récupère le répertoire [script](https://github.com/ben1frt/SAE-302-appli/tree/main/VM/script) présent dans le répertoire VM ici présent, on place ces scripts dans le répertoire d’entrée de root pour éviter toute altération de celui-ci par un utilisateur sans privilège.
 
 ```
-wget lien 
+on récupère le projet et ensuite on ajoute le répertoire script dans un endroit plus sécurisée
 
-cp -r  /chemin/Repertoire /root/ 
+cp -r  /chemin/Repertoire/Script /root/ 
 ```
 
 Il ne nous reste plus qu’a ajouter les scripts dans crontab pour effectuer l’ajout de donnée dans la table de manière automatisée 
