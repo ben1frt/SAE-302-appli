@@ -1,0 +1,8 @@
+
+#!bin/bash
+
+#Lancement du programme Java de récupération des données EcoWatt (ISIS.UNICE.FR) et les transforme dans un fichier .csv utilisable sur influxDB 
+java -cp /root/script/java/lib/json-20220924.jar:/root/script/java/lib/json-simple-1.1.1.jar:/root/script/java/lib/sqlite-jdbc-3.40.0.0.jar:/root/script/java/src Principal file
+
+#Ecriture du CSV dans une table sur influxDB au travers de requete SQL
+python3 /root/script/write.py
