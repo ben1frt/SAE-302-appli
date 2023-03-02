@@ -13,7 +13,7 @@ Si ce n’est pas fait, il suffit de taper la commande suivante :
 apt update && apt install -y influxdb influxdb-client pip default-jdk cron
 ```
 
-ensuite on récupère le répertoire [script](https://www.notion.so/VPN-Wireguard-4dd823b0db324300b8ebf85b18728e74) présent dans le répertoire VM ici présent, on place ces scripts dans le répertoire d’entrée de root pour éviter toute altération de celui-ci par un utilisateur sans privilège.
+ensuite on récupère le répertoire [script](https://github.com/ben1frt/SAE-302-appli/tree/main/VM/script) présent dans le répertoire VM ici présent, on place ces scripts dans le répertoire d’entrée de root pour éviter toute altération de celui-ci par un utilisateur sans privilège.
 
 ```
 wget lien 
