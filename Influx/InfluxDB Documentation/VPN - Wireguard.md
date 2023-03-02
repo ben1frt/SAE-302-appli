@@ -1,10 +1,10 @@
 # VPN - Wireguard
 
-Pour nous simplifier la vie, on va utiliser pivpn un utilitaire permettant de paramétrere automatiquement Wireguard. 
+Pour nous simplifier la vie, on va utiliser pivpn un utilitaire permettant de paramétrer automatiquement Wireguard. 
 
 On utilise cette solution pour des raison de temps de et de praticité. Cela fonctionne tout aussi bien que le package d’origine et c’est très rapide a mettre en place.
 
-# Installation PiVpn
+# Installation PiVPN
 
 On récupère le paque sur GitHub :
 
