@@ -9,13 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.GridLayout;
 import android.widget.TextView;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
+import org.influxdb.dto.QueryResult;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,11 +27,12 @@ public class MainActivity extends AppCompatActivity {
         String[] textviewHour = DeclareTextView();
         String[] imageviewRisk = DeclareImageView();
         GridLayout[] gridLayouts = DeclareGridLayout();
-        List<Risk> risk = ReadRiskDataCSV();
 
-        AddPastille(imageviewRisk, gridLayouts, risk);
+        // Récupérer les données de la base de données InfluxDB
+        List<EcowattData> ecowattdata = ReadRiskDataInfluxDB();
 
-
+        DisplayTextView(textviewHour, gridLayouts);
+        AddPastille(imageviewRisk, gridLayouts, ecowattdata);
 
 
 
@@ -54,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Méthode ReadRiskDataCSV pour lire le fichier CSV avec les données utilisées pour l'application
-    public List<Risk> ReadRiskDataCSV() {
+    /*public List<Risk> ReadRiskDataCSV() {
         List<Risk> risk = new ArrayList<>();
         InputStream is = getResources().openRawResource(R.raw.data);
         BufferedReader reader = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
@@ -78,6 +74,22 @@ public class MainActivity extends AppCompatActivity {
         }
         System.out.println(risk);
         return risk;
+    }*/
+
+    // Méthode avec la class InfluxDBClient pour lire les données de la base de données InfluxDB
+    public List<EcowattData> ReadRiskDataInfluxDB() {
+        List<EcowattData> ecowattData = new ArrayList<>();
+        InfluxDBClient influxDBClient = new InfluxDBClient();
+        influxDBClient.getAllEcowattData(new InfluxDBClient.OnDataFetchedListener() {
+            @Override
+            public void onDataFetched(List<QueryResult.Result> results) {
+                // Faites ici ce que vous voulez avec les résultats récupérés
+                for (QueryResult.Result result : results) {
+                    System.out.println(result.toString());
+                }
+            }
+        });
+        return ecowattData;
     }
 
     // Déclaration d'un tableau de TextView
@@ -136,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // ajouter les pastilles dans imageview pour 24 heures des 4 jours
-    public void AddPastille(String[] imageviewRisk, GridLayout[] gridLayouts, List<Risk> risk) {
+    public void AddPastille(String[] imageviewRisk, GridLayout[] gridLayouts, List<EcowattData> risk) {
         for (int i = 1; i <= 24; i++) {
             for (int j = 1; j <= 4; j++) {
                 ImageView imageView = new ImageView(this);
@@ -144,11 +156,12 @@ public class MainActivity extends AppCompatActivity {
                 lp.setMargins(15, 15, 0, 0);
                 imageView.setLayoutParams(lp);
                 imageView.setId(imageviewRisk[i*j].hashCode());
-                if (risk.get(i*j).getRisk1() == 1) {
+                int pas = risk.get(i*j).getPas(1); // récupère la valeur du pas pour cette pastille
+                if (pas == 1) {
                     imageView.setImageResource(R.drawable.pastille_verte);
-                } else if (risk.get(i*j).getRisk1() == 2) {
+                } else if (pas == 2) {
                     imageView.setImageResource(R.drawable.pastille_orange);
-                } else if (risk.get(i*j).getRisk1() == 3) {
+                } else if (pas == 3) {
                     imageView.setImageResource(R.drawable.pastille_rouge);
                 }
                 imageView.setMinimumHeight(70);
@@ -159,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
     // Méthode DisplayLegend
     public void DisplayEcoGestes (View view) {

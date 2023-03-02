@@ -35,7 +35,9 @@ public class file {
             URL website = new URL(url);
             // Créer une bd ou l'ouvrir si existante
             ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-            FileOutputStream fos = new FileOutputStream(fileName);
+            // String filePath = "/root/script/java/" + fileName;
+            String filePath = fileName;
+            FileOutputStream fos = new FileOutputStream(filePath);
             fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
             fos.close();
         } catch (Exception e) {
@@ -49,6 +51,7 @@ public class file {
         String values = "";
         try {
             // L'url d'accès connexion
+            // String url = "jdbc:sqlite:/root/script/java/" + nom;
             String url = "jdbc:sqlite:./"+nom;
             // Créer une bd ou l'ouvrir si existante
             connexion = DriverManager.getConnection(url);
@@ -121,7 +124,9 @@ public class file {
     public void createCSV (HashMap<String, String[]> usefulData, String name) {
         // création d'un fichier .csv
         try {
+            //String path = "/root/script/java/";
             // création d'un fichier .csv
+            //File file = new File(path + name + ".csv");
             File file = new File(name + ".csv");
             // création d'un objet FileWriter
             FileWriter fw = new FileWriter(file);
