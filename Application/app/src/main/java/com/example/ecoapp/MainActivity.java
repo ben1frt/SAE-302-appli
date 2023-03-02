@@ -11,12 +11,18 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.influxdb.dto.QueryResult;
+import org.w3c.dom.Text;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,81 +32,73 @@ public class MainActivity extends AppCompatActivity {
         AnimationBackground();
         String[] textviewHour = DeclareTextView();
         String[] imageviewRisk = DeclareImageView();
+        TextView[] textViewDay = DeclareTextViewDay();
         GridLayout[] gridLayouts = DeclareGridLayout();
 
-        // Récupérer les données de la base de données InfluxDB
-        List<EcowattData> ecowattdata = ReadRiskDataInfluxDB();
 
-        DisplayTextView(textviewHour, gridLayouts);
-        AddPastille(imageviewRisk, gridLayouts, ecowattdata);
-
-
-
-        // Ajouter les textview pour les jours
-        TextView[] textviewDay = new TextView[5];
-        SimpleDateFormat s = new SimpleDateFormat("dd/MM");
-        Date date = new Date();
-        for (int i = 1; i <= 4; i++) {
-            String viewDay = "Day" + i;
-            int resIDImage = getResources().getIdentifier(viewDay, "id", getPackageName());
-            textviewDay[i] = ((TextView) findViewById(resIDImage));
-            textviewDay[i].setText(s.format(date)+(i-1));
-        }
-
-    }
-
-    // Méthode ReadRiskDataCSV pour lire le fichier CSV avec les données utilisées pour l'application
-    /*public List<Risk> ReadRiskDataCSV() {
-        List<Risk> risk = new ArrayList<>();
-        InputStream is = getResources().openRawResource(R.raw.data);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-        String line = "";
-        Risk riskData = null;
-        try {
-            // Step over headers
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                // Split by ','
-                String[] tokens = line.split(",");
-                // Read the data
-                riskData = new Risk();
-                riskData.setDay(tokens[0]);
-                riskData.setRisk1(Integer.parseInt(tokens[1]));
-                riskData.setRisk2(Integer.parseInt(tokens[2]));
-                risk.add(riskData);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println(risk);
-        return risk;
-    }*/
-
-    // Méthode avec la class InfluxDBClient pour lire les données de la base de données InfluxDB
-    public List<EcowattData> ReadRiskDataInfluxDB() {
-        List<EcowattData> ecowattData = new ArrayList<>();
-        InfluxDBClient influxDBClient = new InfluxDBClient();
-        influxDBClient.getAllEcowattData(new InfluxDBClient.OnDataFetchedListener() {
+        new InfluxDBClient().getAllEcowattData(new InfluxDBClient.OnDataFetchedListener() {
             @Override
             public void onDataFetched(List<QueryResult.Result> results) {
-                // Faites ici ce que vous voulez avec les résultats récupérés
-                for (QueryResult.Result result : results) {
-                    System.out.println(result.toString());
-                }
+                List<EcowattData> ecowattdata = ReadRiskDataInfluxDB(results);
+                AddPastille(imageviewRisk, gridLayouts, ecowattdata);
+                AddDate(textViewDay, ecowattdata);
             }
         });
+
+        DisplayTextView(textviewHour, gridLayouts);
+    }
+
+    // Méthode avec la class InfluxDBClient pour lire les données de la base de données InfluxDB
+    public List<EcowattData> ReadRiskDataInfluxDB(List<QueryResult.Result> results) {
+        List<EcowattData> ecowattData = new ArrayList<>();
+
+        for (QueryResult.Result result : results) {
+            System.out.println(result.toString());
+            for (QueryResult.Series serie : result.getSeries()) {
+                for (List<Object> values : serie.getValues()) {
+                    String dateString = (String) values.get(0);
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                    format.setTimeZone(TimeZone.getTimeZone("UTC"));
+                    Date timestamp;
+                    try {
+                        timestamp = format.parse(dateString);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        timestamp = new Date();
+                    }
+                    int[] pas = new int[24];
+                    for (int i = 0; i < 24; i++) {
+                        pas[i] = Integer.parseInt(values.get(i + 1).toString());
+                    }
+                    ecowattData.add(new EcowattData(timestamp, pas));
+                }
+            }
+        }
+
         return ecowattData;
     }
+
 
     // Déclaration d'un tableau de TextView
     private String[] DeclareTextView() {
         String[] textviewHour = new String[100];
         for (int i = 1; i <= 24; i++) {
             for (int j = 1; j <= 4; j++) {
-                textviewHour[i*j] = "Day" + j + "Hour" + i;
+                textviewHour[i * j] = "Day" + j + "Hour" + i;
             }
         }
         return textviewHour;
+    }
+
+    // Déclaration d'un tableau de TextView pour les jours
+    private TextView[] DeclareTextViewDay() {
+        TextView[] TextViewDay = new TextView[5];
+        for (int i = 1; i <= 4; i++) {
+            String viewImage = "Day" + i;
+            int resIDImage = getResources().getIdentifier(viewImage, "id", getPackageName());
+            TextViewDay[i] = ((TextView) findViewById(resIDImage));
+        }
+        return TextViewDay;
     }
 
     // Déclaration d'un tableau de TextView
@@ -108,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         String[] imageviewRisk = new String[100];
         for (int i = 1; i <= 24; i++) {
             for (int j = 1; j <= 4; j++) {
-                imageviewRisk[i*j] = "Day" + j + "Alert" + i;
+                imageviewRisk[i * j] = "Day" + j + "Alert" + i;
             }
         }
         return imageviewRisk;
@@ -130,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 1; i <= 24; i++) {
             for (int j = 1; j <= 4; j++) {
                 TextView textView = new TextView(this);
-                textView.setId(textviewHour[i*j].hashCode());
+                textView.setId(textviewHour[i * j].hashCode());
                 if (i < 10) {
                     textView.setText("0" + i + "h");
                 } else {
@@ -148,15 +146,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // ajouter les pastilles dans imageview pour 24 heures des 4 jours
-    public void AddPastille(String[] imageviewRisk, GridLayout[] gridLayouts, List<EcowattData> risk) {
+    public void AddPastille(String[] imageviewRisk, GridLayout[] gridLayouts, List<EcowattData> ecowattData) {
         for (int i = 1; i <= 24; i++) {
             for (int j = 1; j <= 4; j++) {
                 ImageView imageView = new ImageView(this);
                 GridLayout.LayoutParams lp = new GridLayout.LayoutParams();
                 lp.setMargins(15, 15, 0, 0);
                 imageView.setLayoutParams(lp);
-                imageView.setId(imageviewRisk[i*j].hashCode());
-                int pas = risk.get(i*j).getPas(1); // récupère la valeur du pas pour cette pastille
+                imageView.setId(imageviewRisk[i * j].hashCode());
+                //int pas = ecowattData.get(j-1).getPas(i); // récupère la valeur du pas pour cette pastille
+                int pas = 1;
                 if (pas == 1) {
                     imageView.setImageResource(R.drawable.pastille_verte);
                 } else if (pas == 2) {
@@ -168,10 +167,21 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setMinimumWidth(70);
                 imageView.setPaddingRelative(10, 10, 10, 10);
                 // insert into layout
-                gridLayouts[j].addView(imageView);
+                //gridLayouts[j].addView(imageView);
             }
         }
     }
+
+    // Ajouter la date au textView avec les données de influxDB
+    public void AddDate(TextView[] textViewDay, List<EcowattData> ecowattData) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM");
+        for (int j = 1; j <= 4; j++) {
+            Date date = ecowattData.get(j - 1).getTimestamp();
+            textViewDay[j].setText(dateFormat.format(date));
+        }
+    }
+
+
 
 
 
