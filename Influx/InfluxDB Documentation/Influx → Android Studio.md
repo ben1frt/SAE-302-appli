@@ -2,9 +2,9 @@
 
 Pour récupérer les données de la base de données InfluxDB sur une application Android construite avec Android Studio, on peut utiliser une bibliothèque cliente pour InfluxDB, telle que `influxdb-java`.
 
-Voici les étapes à suivre pour intégrer `influxdb-java` à votre projet Android :
+Voici les étapes à suivre pour intégrer `influxdb-java`:
 
-Ajoutez la dépendance à `influxdb-java` dans votre fichier `build.gradle (Module: app)` :
+Ajoutez la dépendance à `influxdb-java` dans le fichier `build.gradle (Module: app)` :
 
 ```java
 dependencies {
@@ -12,7 +12,7 @@ implementation 'org.influxdb:influxdb-java:2.23'
 }
 ```
 
-Utilisez la bibliothèque `influxdb-java` pour interroger la base de données et récupérer les données souhaitées. Voici le code pour récupérer toutes les données de la mesure "Ecowatt" :
+On utilise la bibliothèque `influxdb-java` pour interroger la base de données et récupérer les données souhaitées. Voici le code pour récupérer toutes les données de la mesure "Ecowatt" :
 
 ```java
 
