@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataFetched(List<QueryResult.Result> results) {
                 List<EcowattData> ecowattdata = ReadRiskDataInfluxDB(results);
-                AddPastille(imageviewRisk, gridLayouts, ecowattdata);
+                //AddPastille(imageviewRisk, gridLayouts, ecowattdata);
                 AddDate(textViewDay, ecowattdata);
             }
         });
@@ -150,24 +150,24 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 1; i <= 24; i++) {
             for (int j = 1; j <= 4; j++) {
                 ImageView imageView = new ImageView(this);
-                GridLayout.LayoutParams lp = new GridLayout.LayoutParams();
-                lp.setMargins(15, 15, 0, 0);
-                imageView.setLayoutParams(lp);
                 imageView.setId(imageviewRisk[i * j].hashCode());
-                //int pas = ecowattData.get(j-1).getPas(i); // récupère la valeur du pas pour cette pastille
-                int pas = 1;
-                if (pas == 1) {
+                //System.out.println("Pas : " + imageviewRisk[i * j]);
+                if (ecowattData.get(j - 1).getPas(i) == 1) {
                     imageView.setImageResource(R.drawable.pastille_verte);
-                } else if (pas == 2) {
+                } else if (ecowattData.get(j - 1).getPas(i) == 2) {
                     imageView.setImageResource(R.drawable.pastille_orange);
-                } else if (pas == 3) {
+                } else {
                     imageView.setImageResource(R.drawable.pastille_rouge);
                 }
-                imageView.setMinimumHeight(70);
-                imageView.setMinimumWidth(70);
-                imageView.setPaddingRelative(10, 10, 10, 10);
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                imageView.setAdjustViewBounds(true);
+                imageView.setPadding(0, 0, 0, 0);
+                imageView.setMaxWidth(100);
+                imageView.setMaxHeight(60);
+                imageView.setMinimumWidth(100);
+                imageView.setMinimumHeight(60);
                 // insert into layout
-                //gridLayouts[j].addView(imageView);
+                gridLayouts[j].addView(imageView);
             }
         }
     }
