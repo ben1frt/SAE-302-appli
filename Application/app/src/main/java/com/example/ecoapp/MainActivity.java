@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataFetched(List<QueryResult.Result> results) {
                 List<EcowattData> ecowattdata = ReadRiskDataInfluxDB(results);
-                //AddPastille(imageviewRisk, gridLayouts, ecowattdata);
+                AddPastille(imageviewRisk, gridLayouts, ecowattdata);
                 AddDate(textViewDay, ecowattdata);
             }
         });
